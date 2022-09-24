@@ -1,10 +1,15 @@
-import java.util.Arrays;
-import java.util.Random;
+import java.util.stream.IntStream;
 
 public class Problem2 {
-    static int findIndex(int[] arr) {
-        System.out.println(Arrays.toString(arr));
-        return -1;
+    static int findMissingNumber(int[] arr) {
+        int len = arr.length;
+        int total = 1;
+        for (int i = 2; i <= len + 1; i++) {
+            total += i;
+            total -= arr[i - 2];
+        }
+
+        return total;
     }
     public static void main(String[] args) {
         int[] arr = new int[100];
@@ -12,15 +17,17 @@ public class Problem2 {
             arr[i - 1] = i;
         }
 
-        Random rgen = new Random();  // Random number generator
+        int missingNumber = 2;
+        int[] finalArr = arr;
+        arr = IntStream.range(0, arr.length)
+                .filter(i -> i != missingNumber - 1)
+                .map(i -> finalArr[i])
+                .toArray();
 
-        for (int i = 0; i < arr.length; i++) {
-            int randomPosition = rgen.nextInt(arr.length);
-            int temp = arr[i];
-            arr[i] = arr[randomPosition];
-            arr[randomPosition] = temp;
+        if (findMissingNumber(arr) == 0) {
+            System.out.println("no missing number");
+        } else {
+            System.out.printf("The missing number is %d", findMissingNumber(arr));
         }
-
-        System.out.println(findIndex(arr));
     }
 }
