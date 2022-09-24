@@ -23,11 +23,6 @@ public class Problem2 {
                 .filter(i -> i != missingNumber - 1)
                 .map(i -> finalArr[i])
                 .toArray();
-
-        if (findMissingNumber(arr) == 0) {
-            System.out.println("no missing number");
-        } else {
-            System.out.printf("The missing number is %d", findMissingNumber(arr));
-        }
+        System.out.printf("The missing number is %d", findMissingNumber(arr));
     }
 }
