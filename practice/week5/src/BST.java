@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Problem1And2 {
+public class BST {
     static class Node {
         int data;
         Node left, right, parent;
@@ -31,6 +31,30 @@ public class Problem1And2 {
             return node;
         }
 
+        void preOrder(Node node) {
+            if (node != null) {
+                System.out.print(node.data + " ");
+                preOrder(node.left);
+                preOrder(node.right);
+            }
+        }
+
+        void inOrder(Node node) {
+            if (node != null) {
+                inOrder(node.left);
+                System.out.printf("%d (%d) ", node.data, node.parent != null ? node.parent.data : -1);
+                inOrder(node.right);
+            }
+        }
+
+        void postOrder(Node node) {
+            if (node != null) {
+                postOrder(node.left);
+                postOrder(node.right);
+                System.out.print(node.data + " ");
+            }
+        }
+
         void breadthFirstTraversal() {
             Queue<Node> q = new LinkedList<>();
 
@@ -46,8 +70,15 @@ public class Problem1And2 {
                     q.add(current.right);
                 }
             }
+        }
 
-            System.out.println();
+        int getHeight(Node node) {
+            if (node == null) return 0;
+
+            int leftHeight = getHeight(node.left);
+            int rightHeight = getHeight(node.right);
+
+            return Math.max(leftHeight, rightHeight) + 1;
         }
 
         boolean insert(int value) {
@@ -106,11 +137,34 @@ public class Problem1And2 {
             return null;
         }
 
+        boolean isBST(Node node, int min, int max) {
+            if (node == null) return true;
+
+            // false if node data is not in the required range
+            if (node.data < min || node.data > max) return false;
+
+            // each node is greater than all nodes in left subtree and smaller than all nodes in right subtree
+            return isBST(node.left, min, node.data - 1) && isBST(node.right, node.data + 1, max);
+        }
+
         public static void main(String[] args) {
             BinaryTree binaryTree = new BinaryTree();
             int[] arr = new int[]{1,2,3,4,5,7};
             root = sortedArrayToBST(arr, 0, arr.length - 1);
+
+            System.out.println("Breadth first traversal:");
             binaryTree.breadthFirstTraversal();
+
+            System.out.println("\nPreorder traversal:");
+            binaryTree.preOrder(root);
+
+            System.out.println("\nInorder traversal:");
+            binaryTree.inOrder(root);
+
+            System.out.println("\nPostorder traversal:");
+            binaryTree.postOrder(root);
+
+            System.out.println("\nHeight of binary tree: " + binaryTree.getHeight(root));
 
             binaryTree.insert(6);
             binaryTree.insert(8);
@@ -121,6 +175,13 @@ public class Problem1And2 {
             binaryTree.find(11);
             binaryTree.find(6);
             binaryTree.breadthFirstTraversal();
+
+            System.out.println("\nHeight of binary tree: " + binaryTree.getHeight(root));
+            if (binaryTree.isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
+                System.out.println("This is binary search tree");
+            } else {
+                System.out.println("This is not binary search tree");
+            }
         }
     }
 }
