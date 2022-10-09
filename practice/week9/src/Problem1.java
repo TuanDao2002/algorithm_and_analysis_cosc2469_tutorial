@@ -65,16 +65,22 @@ public class Problem1 {
 
     // Hoare Partition Scheme
     static int partition(int[] arr, int left, int right) {
-        int pivot = arr[left], i = left, j = right;
+        int pivot = arr[left], i = left - 1, j = right + 1;
 
         while (true) {
-            while (arr[i] < pivot) i++;
-            while (arr[j] > pivot) j--;
-            if (j <= i) return j;
+            do {
+                i++;
+            } while (arr[i] < pivot);
 
+            do {
+                j--;
+            } while (arr[j] > pivot);
+
+
+            if (j <= i) {
+                return j;
+            }
             swap(arr, i, j);
-            i++;
-            j--;
         }
     }
 
@@ -88,7 +94,7 @@ public class Problem1 {
     }
 
     public static void main(String[] args) {
-        int ARR_SIZE = 10;
+        int ARR_SIZE = 100;
         int[] arr = new int[ARR_SIZE];
         for (int i = 0; i < ARR_SIZE; i++) {
             arr[i] = (int) (Math.random() * ARR_SIZE);
@@ -97,7 +103,8 @@ public class Problem1 {
         System.out.println("Original:");
         System.out.println(Arrays.toString(arr));
 //        selectionSort(arr);
-        mergeSort(arr);
+//        mergeSort(arr);
+        quickSort(arr, 0, ARR_SIZE - 1);
 
         System.out.println("After sort:");
         System.out.println(Arrays.toString(arr));
