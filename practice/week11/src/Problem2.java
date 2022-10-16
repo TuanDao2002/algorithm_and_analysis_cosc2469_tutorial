@@ -14,6 +14,7 @@ public class Problem2 {
         }
     }
 
+    // Dijkstra's algorithm
     static void displayShortestPath(int[][] distances) {
         int distancesLen = distances.length;
         if (distancesLen == 0) {
@@ -52,10 +53,8 @@ public class Problem2 {
                 if (otherCity.prevCityIndex == currentCity.cityIndex || otherCity.cityIndex == currentCity.cityIndex) continue;
                 if (distancesToOtherCity[otherCity.cityIndex] == - 1) continue;
 
-                if (otherCity.distance == Integer.MAX_VALUE) {
-                    otherCity.distance = currentCity.distance + distancesToOtherCity[otherCity.cityIndex];
-                    otherCity.prevCityIndex = currentCity.cityIndex;
-                } else if (currentCity.distance + distancesToOtherCity[otherCity.cityIndex] < otherCity.distance) {
+                if (otherCity.distance == Integer.MAX_VALUE
+                        || currentCity.distance + distancesToOtherCity[otherCity.cityIndex] < otherCity.distance) {
                     otherCity.distance = currentCity.distance + distancesToOtherCity[otherCity.cityIndex];
                     otherCity.prevCityIndex = currentCity.cityIndex;
                 }
@@ -75,6 +74,10 @@ public class Problem2 {
             currentCity = cityArray.get(cityArray.indexOf(nearestCity));
             pathArrayList.add(currentCity);
             cityArray.remove(currentCity);
+
+            if (currentCity.cityIndex == distancesLen - 1) {
+                break;
+            }
         }
 
         for (City city : pathArrayList) {
