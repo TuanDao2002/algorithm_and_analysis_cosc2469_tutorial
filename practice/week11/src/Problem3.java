@@ -13,6 +13,8 @@ public class Problem3 {
     }
 
     // Prim's algorithm
+    // Same as Dijkstra's algorithm but update the minimum distance from the place index
+    // not the whole total distance of the previous place index
     static void displayShortestTotalLength(int[][] castles) {
         int castleLen = castles.length;
         if (castleLen == 0) {
