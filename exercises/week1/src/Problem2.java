@@ -1,4 +1,5 @@
 public class Problem2 {
+    // find the missing number by minus the  sum of the array
     static int findMissingNumber(int[] arr) {
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
