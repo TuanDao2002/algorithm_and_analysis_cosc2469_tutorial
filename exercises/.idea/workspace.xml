@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e886e42-3408-4710-8663-18a4bb41c1fe" name="Changes" comment="" />
+    <list default="true" id="118ccea2-c3ce-4e08-8e56-ac8a1cf1ed33" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,10 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2FA9WgI5oPxTqf9GkcQzZe1vJsC" />
+  <component name="ProjectId" id="2GbwXWCIqWuTmNNzwW940kKZvf6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,44 +23,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5e886e42-3408-4710-8663-18a4bb41c1fe" name="Changes" comment="" />
-      <created>1663924054502</created>
+      <changelist id="118ccea2-c3ce-4e08-8e56-ac8a1cf1ed33" name="Changes" comment="" />
+      <created>1666670631561</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1663924054502</updated>
-      <workItem from="1663924055580" duration="40000" />
-      <workItem from="1664032903217" duration="10000" />
-      <workItem from="1664168866784" duration="25000" />
-      <workItem from="1664274588663" duration="24000" />
-      <workItem from="1664943234370" duration="54000" />
-      <workItem from="1665029018710" duration="84000" />
-      <workItem from="1665151813272" duration="18000" />
-      <workItem from="1665155092962" duration="42000" />
-      <workItem from="1665155165192" duration="43000" />
-      <workItem from="1665289928217" duration="15000" />
-      <workItem from="1665655438221" duration="19000" />
-      <workItem from="1665806110597" duration="23000" />
-      <workItem from="1666670494802" duration="38000" />
+      <updated>1666670631561</updated>
+      <workItem from="1666670632654" duration="181000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
