@@ -1,19 +1,17 @@
 public class Problem2 {
-    // find the missing number by minus the  sum of the array
+    /*
+        A[0, N - 1]
+        len = A.length
+        arraySeries = N * (N + 1) / 2
+        arraySum = 0
+        for i = 0 to N - 1
+            arraySum += A[i]
+        return arraySeries - arraySum
+     */
     static int findMissingNumber(int[] arr) {
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
         int sumOfArr = 0;
 
         for (int val : arr) {
-            if (val > max) {
-                max = val;
-            }
-
-            if (val < min) {
-                min = val;
-            }
-
             sumOfArr += val;
         }
 

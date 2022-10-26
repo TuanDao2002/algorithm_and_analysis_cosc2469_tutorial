@@ -1,23 +1,18 @@
-import java.util.HashMap;
+import javax.sound.midi.Sequence;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Problem3 {
-    static boolean isPermutation(int[] arr1, int[] arr2) {
-        int len1 = arr1.length;
-        int len2 = arr2.length;
+    /*
 
-        if (len1 != len2) return false;
+     */
+    static boolean isPermutation(Set<Integer> set1, Set<Integer> set2) {
+        int element;
+        Iterator value1 = set1.iterator();
+        while (value1.hasNext()) {
+            boolean found = false;
 
-        HashMap<Integer, Integer> freq = new HashMap<>();
-        for (int i = 0; i < len1; i++) {
-            freq.put(arr1[i], freq.get(arr1[i]) == null ? 1 : freq.get(arr1[i]) + 1);
-            freq.put(arr2[i], freq.get(arr2[i]) == null ? 1 : freq.get(arr2[i]) + 1);
         }
-
-        for (int key : freq.keySet()) {
-            if (freq.get(key) <= 1) return false;
-        }
-
-        return true;
     }
 
     static boolean isPermutationWithMath(int[] arr1, int[] arr2) {
