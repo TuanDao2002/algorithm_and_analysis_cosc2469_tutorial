@@ -1,40 +1,50 @@
-import javax.sound.midi.Sequence;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Problem3 {
     /*
 
      */
     static boolean isPermutation(Set<Integer> set1, Set<Integer> set2) {
-        int element;
-        Iterator value1 = set1.iterator();
+        Iterator<Integer> value1 = set1.iterator();
+        Iterator<Integer> value2 = set2.iterator();
+
         while (value1.hasNext()) {
+            int element = value1.next();
             boolean found = false;
+            value2 = set2.iterator();
+            while (value2.hasNext()) {
+                if (Objects.equals(element, value2.next())) {
+                    found = true;
+                    break;
+                }
+            }
 
-        }
-    }
-
-    static boolean isPermutationWithMath(int[] arr1, int[] arr2) {
-        int sum1 = 0, mul1 = 1, sum2 = 0, mul2 = 1;
-
-        for (int v : arr1) {
-            sum1 += v;
-            mul1 *= v;
-        }
-
-        for (int v : arr2) {
-            sum2 += v;
-            mul2 *= v;
+            if (!found) return false;
         }
 
-        return sum1 == sum2 && mul1 == mul2;
+        while (value2.hasNext()) {
+            int element = value2.next();
+            boolean found = false;
+            value1 = set1.iterator();
+            while (value1.hasNext()) {
+                if (Objects.equals(value1.next(), element)) {
+                    found = true;
+                    break;
+                }
+            }
+
+            value2 = set2.iterator();
+            if (!found) return false;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
-        int[] arr1 = new int[]{1, 2, 3, 4};
-        int[] arr2 = new int[]{1, 2, 1, 5};
-        if (isPermutationWithMath(arr1, arr2)) {
+        Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(1, 2, 4));
+
+        if (isPermutation(set1, set2)) {
             System.out.println("YES");
         } else {
             System.out.println("NO");
