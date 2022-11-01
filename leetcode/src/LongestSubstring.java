@@ -14,6 +14,12 @@ public class LongestSubstring {
                 subStr = new StringBuilder();
                 subStr.append(s.charAt(i));
             }
+
+            if (i == strLen - 1) {
+                if (subStr.length() > maxLength) {
+                    maxLength = subStr.length();
+                }
+            }
         }
 
         return maxLength;
@@ -23,5 +29,6 @@ public class LongestSubstring {
         System.out.println(lengthOfLongestSubstring("abcabcbb"));
         System.out.println(lengthOfLongestSubstring("bbbbb"));
         System.out.println(lengthOfLongestSubstring("pwwkew"));
+        System.out.println(lengthOfLongestSubstring(" "));
     }
 }
