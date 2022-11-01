@@ -4,31 +4,59 @@ public class LongestSubstring {
         StringBuilder subStr = new StringBuilder();
         int strLen = s.length();
         for (int i = 0; i < strLen; i++) {
-            if (subStr.toString().indexOf(s.charAt(i)) == -1) {
-                subStr.append(s.charAt(i));
-            } else {
-                if (subStr.length() > maxLength) {
-                    maxLength = subStr.length();
+            for (int j = i; j < strLen; j++) {
+                if (subStr.toString().indexOf(s.charAt(j)) == -1) {
+                    subStr.append(s.charAt(j));
+                } else {
+                    break;
                 }
 
-                subStr = new StringBuilder();
-                subStr.append(s.charAt(i));
-            }
-
-            if (i == strLen - 1) {
                 if (subStr.length() > maxLength) {
                     maxLength = subStr.length();
                 }
             }
+
+            subStr = new StringBuilder();
+        }
+
+        return maxLength;
+    }
+
+    // apply sliding window technique
+    static public int lengthOfLongestSubstringWindowSlicing(String str) {
+        StringBuilder test = new StringBuilder();
+
+        // Result
+        int maxLength = -1;
+
+        // Return zero if string is empty
+        if (str.isEmpty()) {
+            return 0;
+        }
+        // Return one if string length is one
+        else if (str.length() == 1) {
+            return 1;
+        }
+        for (char c : str.toCharArray()) {
+            String current = String.valueOf(c);
+
+            // If string already contains the character
+            // Then substring after repeating character
+            if (test.toString().contains(current)) {
+                test = new StringBuilder(test.substring(test.indexOf(current) + 1));
+            }
+            test.append(c);
+            System.out.println(test);
+            maxLength = Math.max(test.length(), maxLength);
         }
 
         return maxLength;
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("abcabcbb"));
-        System.out.println(lengthOfLongestSubstring("bbbbb"));
-        System.out.println(lengthOfLongestSubstring("pwwkew"));
-        System.out.println(lengthOfLongestSubstring(" "));
+        System.out.println(lengthOfLongestSubstringWindowSlicing("abcabcbb"));
+//        System.out.println(lengthOfLongestSubstringWindowSlicing("bbbbb"));
+//        System.out.println(lengthOfLongestSubstringWindowSlicing("pwwkew"));
+//        System.out.println(lengthOfLongestSubstringWindowSlicing(" "));
     }
 }
