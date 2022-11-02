@@ -28,7 +28,7 @@ public class Problem4 {
             }
         }
 
-        return  minNumOfGates;
+        return minNumOfGates;
     }
 
     public static void main(String[] args) {

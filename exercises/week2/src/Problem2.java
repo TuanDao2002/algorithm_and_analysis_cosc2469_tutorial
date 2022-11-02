@@ -15,8 +15,19 @@ public class Problem2 {
         }
     }
 
+    static void printAllSortedUnique(int[] arr) {
+        int arrLen = arr.length;
+        int curr = arr[0];
+        System.out.print(curr + " ");
+        for (int i = 1; i < arrLen; i++) {
+            if (arr[i] != curr) System.out.print(arr[i] + " ");
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = {423, 232, 423, 11, 6, 423};
         printAllUnique(arr);
+        System.out.println();
+        printAllSortedUnique(arr);
     }
 }
