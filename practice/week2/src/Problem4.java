@@ -28,12 +28,12 @@ public class Problem4 {
             }
         }
 
-        return  minNumOfGates;
+        return minNumOfGates;
     }
 
     public static void main(String[] args) {
-        String[] arrival = {"1:00", "1:40", "1:50", "2:00", "2:25", "4:00"};
-        String[] departure = {"1:10", "1:55", "2:20", "2:30", "3:15", "6:00"};
+        String[] arrival = {"1:00", "1:40", "1:50", "2:00", "2:15", "4:00"};
+        String[] departure = {"1:10", "3:00", "2:20", "2:30", "3:15", "6:00"};
 
         System.out.println(findMinNumOfGates(arrival, departure));
     }
