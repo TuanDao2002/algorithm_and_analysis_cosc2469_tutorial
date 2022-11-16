@@ -40,11 +40,23 @@ public class Problem3 {
         return true;
     }
 
+    static boolean isPermutation2(Set<Integer> set1, Set<Integer> set2) {
+        for (int element : set2) {
+            int oldSize = set1.size();
+            set1.remove(element);
+            int newSize = set1.size();
+
+            if (oldSize == newSize) return false;
+        }
+
+        return set1.size() <= 0;
+    }
+
     public static void main(String[] args) {
         Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
-        Set<Integer> set2 = new HashSet<>(Arrays.asList(1, 2, 4));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(1, 2, 3));
 
-        if (isPermutation(set1, set2)) {
+        if (isPermutation2(set1, set2)) {
             System.out.println("YES");
         } else {
             System.out.println("NO");
