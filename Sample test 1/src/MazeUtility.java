@@ -52,8 +52,8 @@ public class MazeUtility {
     public static void main(String[] args) {
         char[][] maze = new char[][]{
                 {'S', '.', '.', '*'},
-                {'.', '*', '*', '*'},
-                {'.','.', '.', 'E'}
+                {'*', '*', '.', '.'},
+                {'.', '*', '*', 'E'}
         };
 
         displayMaze(maze);
