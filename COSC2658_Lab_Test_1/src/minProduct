@@ -1,0 +1,42 @@
+The number in curly braces on the right of each line is the execution times
+of the respective statement on the left
+
+boolean minProduct(int[] A)
+    N = length(A)                                           {1}
+    closest = INFINITY                                      {1}
+    for i from 0 to (N - 2)                                 {N-1}
+        for j from (i + 1) to (N - 1)                       {sum(N - i - 1): for i from 0 to N-1}
+            if (A[i] * A[j] < minProduct)                   {sum(N - i - 1): for i from 0 to N-1}
+                minProduct = A[i] * A[j]                    {sum(N - i - 1): for i from 0 to N-1}
+    return closest                                          {1}
+
+The statement with largest number of execution is the statement inside the nested loop
+sum(N - i - 1): for i from 0 to (N-1)
+i = 0 => the element is N - 1
+i = 1 => the element is N - 2
+...
+i = (N-1) => the element is 0
+So, the sum is: 0 + 1 + 2 + ... + (N - 2) + (N - 1) = N*(N-1)/2
+Keep the most significant element and remove the constants, it is N^2
+The big-O of above algorithm is O(N^2)
+
+-----------------------------
+
+Analysis
+
+boolean minProduct(int[] A)
+      N = length(A)                                     {1}
+      int firstMin = min(arr[0], arr[1])                {1}
+      int secondMin = min(arr[0], arr[1])               {1}
+      for i from 2 to (N - 1)                           {N - 2}
+            if (A[i] < firstMin)                        {N - 2}
+                secondMin = firstMin                    {N - 2}
+                firstMin = A[i]                         {N - 2}
+            else if (A[i] < secondMin)                  {N - 2}
+                secondMin = A[i]                        {N - 2}
+      return firstMin * secondMin                       {1}
+
+The pair that creates minimum product are the 2 smallest in the array, so using 1 for loop to find the 2 minimum values
+and the result is their product.
+The time complexity in this algorithm is O(N)
+
