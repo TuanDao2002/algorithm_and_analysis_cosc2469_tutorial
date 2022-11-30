@@ -15,7 +15,7 @@ public class KnapsackProblem {
             return selectedStates;
         }
 
-        if (wt[currentIdx] > capacity) return Knapsack(capacity - wt[currentIdx], wt, val, selectedStates, stateIdx, currentIdx - 1);
+        if (wt[currentIdx] > capacity) return Knapsack(capacity, wt, val, selectedStates, stateIdx, currentIdx - 1);
 
         int[] newSelectedStates = new int[selectedStates.length];
         System.arraycopy(selectedStates, 0, newSelectedStates, 0, selectedStates.length);
