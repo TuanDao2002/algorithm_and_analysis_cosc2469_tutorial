@@ -1,16 +1,44 @@
 public class PowWithSqrt {
-    static int powWithSqrt(int X, int N, int mod) {
-        if (N == 0) return 1 % mod;
-
-        int sqrt = powWithSqrt(X, N / 2, mod);
-        if (N % 2 == 0) {
-            return (sqrt * sqrt) % mod;
-        } else {
-            return (X * (sqrt * sqrt) % mod) % mod;
-        }
-    }
+    static int MOD = 1000000007;
 
     public static void main(String[] args) {
-        System.out.println(powWithSqrt(2, 2, 2));
+        // correctness test
+        System.out.println("Power brute force: " + powerBruteForce(2, 100));
+        System.out.println("Power decrease conquer: " + powerFast(2, 100));
+
+        System.out.println("Power brute force: " + powerBruteForce(7, 10001));
+        System.out.println("Power decrease conquer: " + powerFast(7, 10001));
+
+        // performance test
+        long t1 = System.currentTimeMillis();
+        System.out.println("Power brute force: " + powerBruteForce(201, 500000000));
+        System.out.println("Time: " + (System.currentTimeMillis() - t1));
+        t1 = System.currentTimeMillis();
+        System.out.println("Power decrease conquer: " + powerFast(201, 500000000));
+        System.out.println("Time: " + (System.currentTimeMillis() - t1));
+    }
+
+
+    static int powerFast(int X, int N) {
+        if (N == 0) {
+            return 1;
+        }
+        if (N == 1) {
+            return X;
+        }
+        long sub = powerFast(X, N / 2);
+        sub = (sub * sub) % MOD; //sub * sub
+        if (N % 2 == 1) {
+            return (int)((sub * X) % MOD); //X
+        }
+        return (int)sub;
+    }
+
+    static int powerBruteForce(int X, int N) {
+        long res = 1; //1
+        for (int i = 0; i < N; i++) {
+            res = (res * X) % MOD; //res
+        }
+        return (int)res;
     }
 }
