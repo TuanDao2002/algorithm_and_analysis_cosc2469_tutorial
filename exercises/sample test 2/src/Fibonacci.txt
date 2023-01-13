@@ -22,16 +22,15 @@ int fib(int N)
   if N == 2                         {1}
     return 1                        {1}
 
-  int[N] F = int[N]                 {1}
+  int F[] = int[N + 2]              {1}
   F[0] = 0                          {1}
   F[1] = 1                          {1}
 
-  for i = 2 to N - 1:               {N - 2}
+  for i = 2 to N:                   {N}
     F[i] = F[i - 1] + F[i - 2]      {1}
 
-  return F[N - 1]                   {1}
+  return F[N]                       {1}
 
-Keep the most significant element and remove the constants, it is N
 so the big-O of this algorithm is O(N)
 
 

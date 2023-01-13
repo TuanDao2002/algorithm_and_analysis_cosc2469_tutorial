@@ -9,6 +9,7 @@ public class MovieOrdering {
         mo.addMovie(c);
         System.out.println(mo.currentJoyfulness()); // return 230
         System.out.println(mo.maxJoyfulness());
+        System.out.println(mo.currentJoyfulness());
     }
 
     static int mostNumOfMovies = 9;
@@ -79,7 +80,7 @@ public class MovieOrdering {
         return max;
     }
 
-    // maxJoyfulness complexity = O(N ^ 2)
+    // maxJoyfulness complexity = O(N!)
     public int maxJoyfulness() {
         int[] input = new int[currentIdx];
         for (int i = 0; i < currentIdx; i++) {

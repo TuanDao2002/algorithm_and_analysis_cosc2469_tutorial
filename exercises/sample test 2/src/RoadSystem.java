@@ -66,7 +66,6 @@ public class RoadSystem {
             }
 
             if (shortest == Integer.MAX_VALUE) {
-                System.out.println(nodeCount);
                 // we cannot go further - the graph is not connected
                 return Integer.MAX_VALUE;
             }

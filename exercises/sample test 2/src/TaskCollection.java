@@ -16,7 +16,7 @@ public class TaskCollection {
     static int maxLen = 2027;
     Task[] tasks = new Task[maxLen];
 
-    // calcLocation complexity = O(N)
+    // calcLocation complexity = O(1)
     public int calcLocation(Task t) {
         String name = t.name;
         int value = 0;
