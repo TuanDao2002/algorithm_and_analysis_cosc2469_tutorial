@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class MovieOrdering {
     public static void main(String[] args) {
         Movie a = new Movie("Squid Game", "Thriller", 7.6, 120);
