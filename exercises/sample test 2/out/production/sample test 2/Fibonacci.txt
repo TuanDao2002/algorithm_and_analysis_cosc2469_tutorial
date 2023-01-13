@@ -1,0 +1,40 @@
+int fib(int N)
+  if N == 1                         {1}
+    return 0                        {1}
+  if N == 2                         {1}
+    return 1                        {1}
+  return fib(N-1) + Fib(N-2)        {T(N) = T(N-1) + T(N-2) with T(a) is the time to process the number of index (a-1))
+
+T(N) = T(N - 1) + T(N - 2)
+     < T(N - 1) + T(N - 1) = 2T(N - 1) = 2 * 2T(N - 2)
+                                       = 2 * 2 * 2T(N - 3)
+                                       .....
+                                       = 2 ^ i * T(N - i)
+
+when i = N, then T(N) < 2^N * T(0) = 2^N (assume T(0) = 1)
+so the big-O of the algorithm is O(2^N)
+
+// apply dynamic programming
+
+int fib(int N)
+  if N == 1                         {1}
+    return 0                        {1}
+  if N == 2                         {1}
+    return 1                        {1}
+
+  int[N] F = int[N]                 {1}
+  F[0] = 0                          {1}
+  F[1] = 1                          {1}
+
+  for i = 2 to N - 1:               {N - 2}
+    F[i] = F[i - 1] + F[i - 2]      {1}
+
+  return F[N - 1]                   {1}
+
+Keep the most significant element and remove the constants, it is N
+so the big-O of this algorithm is O(N)
+
+
+
+
+
