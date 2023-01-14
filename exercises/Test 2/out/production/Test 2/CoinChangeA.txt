@@ -1,0 +1,49 @@
+maxOne = N                                                              {1}
+maxTwo = N/2                                                            {1}
+maxFive = N/5                                                           {1}
+ALL = []                                                                {1}
+for i = 0 to maxOne - 1                                                 {N}
+  ALL.append(1)                                                         {1}
+for i = 0 to maxTwo - 1                                                 {N/2}
+  ALL.append(2)                                                         {1}
+for i = 0 to maxFive - 1                                                {N/5}
+  ALL.append(5)                                                         {1}
+// the above code creates an array of
+// N number 1, N/2 number 2, and N/5 number 5
+answer = []                                                             {1}
+min = MAX_POSITIVE                                                      {1}
+for each subset SUB of array ALL  // try all subsets                    {2 ^ (N + N/2 + N/5)}
+  if (sum of elements in SUB == N)  // a valid solution?                {1}
+    if (length of SUB < min)  // better than the current solution?      {1}
+      min = length of SUB                                               {1}
+      answer = SUB                                                      {1}
+return answer                                                           {1}
+
+Keep the most significant element and remove the constants, it is 2^N
+The big-O of above algorithm is O(2^N)
+
+// efficient solution
+int numOfCoins5 = N / 5                                                 {1}
+int numOfCoins2 = (N % 5) / 2                                           {1}
+int numOfCoins1 = (N % 5 % 2) / 1                                       {1}
+
+answer = []                                                             {1}
+for i = 0 to numOfCoins5 - 1:                                           {N / 5}
+    answer.append(5)                                                    {1}
+
+for i = 0 to numOfCoins2 - 1:                                           {(N % 5) / 2}
+    answer.append(2)                                                    {1}
+
+for i = 0 to numOfCoins1 - 1:                                           {(N % 5 % 2) / 1}
+    answer.append(1)                                                    {1}
+
+return answer                                                           {1}
+
+Keep the most significant element and remove the constants, it is N
+The big-O of above algorithm is O(N)
+
+
+
+
+
+
